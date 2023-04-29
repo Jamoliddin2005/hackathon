@@ -3,7 +3,7 @@ const cors = require("cors");
 require("dotenv").config();
 const app = express();
 
-const front = process.env.FRONT_URL || "http:\\localhost:3000"
+const front = process.env.FRONT_URL || "http://localhost:3000"
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({
