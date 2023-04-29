@@ -9,6 +9,7 @@ app.use("/api/admin", require("./routes/admin.js"));
 app.use(require("./middleware/acces.js"))
 app.use("/team", require("./routes/teams.js"))
 app.use("/category", require("./routes/category.js"))
+app.use("/list", require("./routes/list.js"))
 app.use(require("./middleware/error.js"))
 
 

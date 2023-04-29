@@ -31,7 +31,7 @@ const categorySchema = new Schema({
         default: 0,
       },
       time: {
-        type: Schema.Types.Date,
+        type: String,
         required: true,
       },
     },

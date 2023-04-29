@@ -16,5 +16,6 @@ module.exports.create = async (req, res) => {
 };
 
 module.exports.find = async (req, res) => {
-    
+  const teams = await Teams.find()
+  res.status(200).json(teams)
 };
