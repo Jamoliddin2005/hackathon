@@ -15,7 +15,7 @@ app.use(require("./middleware/error.js"))
 
 
 const port = process.env.PORT || 5000;
-const uri = process.env.URI
+const uri = process.env.URI || "mongodb://localhost:27017"
 require("./helper/connect.js")(uri)
 app.listen(port, () => {
   console.log("Server working on " + port);

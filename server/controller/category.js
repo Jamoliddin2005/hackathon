@@ -1,3 +1,9 @@
+const {
+  checkTime,
+  newCategoryUppdate,
+  addListTeams,
+  listItemsUpdate,
+} = require("../common/utils.js");
 const Category = require("../model/category.js");
 const List = require("../model/list.js");
 
@@ -71,8 +77,8 @@ module.exports.oldCreateTeam = async (req, res) => {
       return res.status(400).json({ msg: "The category must be old" });
 
     const check = await checkTime(team1, time);
-    if(check) return res.status(400).json({msg: "This match is exists"})
-    
+    if (check) return res.status(400).json({ msg: "This match is exists" });
+
     category.teams.push({ team1, team2, score1, score2, time });
     await category.save();
     await newCategoryUppdate(category.name, team1, team2);
@@ -90,61 +96,49 @@ module.exports.oldCreateTeam = async (req, res) => {
   }
 };
 
-// check time in catgeory old
-async function checkTime(team1, time) {
-  const category = await Category.findOne({ "teams.team1": team1, "teams.time": time });
-  if (category) return true;
-  return false;
-}
+module.exports.updateName = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const { name } = req.body;
+    if (!name) return res.status(400).json({ msg: "Body is not valid" });
 
-// new category update
-async function newCategoryUppdate(categoryName, team1) {
-  await Category.findOneAndUpdate(
-    { name: categoryName },
-    {
-      $pull: {
-        teams: { team1 },
-      },
+    const category = await Category.findById(id);
+    console.log(category, id);
+    if (!category)
+      return res.status(400).json({ msg: "Category was not found" });
+
+    for (let i = 0; i < 2; i++) {
+      await Category.findOneAndUpdate(
+        { name: category.name },
+        {
+          $set: {
+            name,
+          },
+        }
+      );
     }
-  );
-}
 
-// list updates
-async function listItemsUpdate(score1, score2, team1, team2) {
-  if (score1 > score2) {
-    listUpdate("score", 3, team1);
-  } else if (score1 < score2) {
-    listUpdate("score", 3, team2);
-  } else if (score1 === score2) {
-    listUpdate("score", 1, team1);
-    listUpdate("score", 1, team2);
+    await List.findOneAndUpdate(
+      { name: category.name },
+      {
+        $set: {
+          name,
+        },
+      }
+    );
+
+    return res.status(201).json({ msg: "titles has been changed" });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ msg: "Tiles has not been changed" });
   }
+};
 
-  listUpdate("matchCount", 1, team1);
-  listUpdate("matchCount", 1, team2);
-}
+module.exports.get = async (req, res) => {
+  const newCategories = await Category.find({ oldOrNew: "new" });
+  const oldCategories = await Category.find({ oldOrNew: "old" });
 
-async function listUpdate(updateMatch, count, targetId) {
-  await List.findOneAndUpdate(
-    { "teams.teamId": targetId },
-    {
-      $inc: {
-        [`teams.$.${updateMatch}`]: count,
-      },
-    }
-  );
-}
+  res.status(200).json({ new: newCategories, old: oldCategories });
+};
 
-async function addListTeams(teamId, listName) {
-  const team = await List.findOne({ "teams.teamId": teamId });
-  if (team) return;
 
-  await List.findOneAndUpdate(
-    { name: listName },
-    {
-      $push: {
-        teams: { teamId },
-      },
-    }
-  );
-}

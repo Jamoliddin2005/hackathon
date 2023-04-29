@@ -34,3 +34,8 @@ module.exports.createTeam = async (req, res) => {
     res.status(400).json({ msg: "Team is not added" });
   }
 };
+
+module.exports.get = async (req, res) => {
+  const list = await List.find()
+  res.status(200).json(list)
+}
