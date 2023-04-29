@@ -11,13 +11,19 @@ app.use(cors({
   credentials: true
 }));
 
+
+//routes
 app.use("/", require("./routes/get.js"));
 app.use("/api/admin", require("./routes/admin.js"));
+// acces token middleware
 app.use(require("./middleware/acces.js"));
+// routes
 app.use("/team", require("./routes/teams.js"));
 app.use("/category", require("./routes/category.js"));
 app.use("/list", require("./routes/list.js"));
+// error middlware
 app.use(require("./middleware/error.js"));
+
 
 const port = process.env.PORT || 5000;
 const uri = process.env.URI || "mongodb://localhost:27017";

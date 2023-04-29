@@ -1,3 +1,3 @@
 module.exports = (err, req, res, next) => {
-  res.json({status: 500, msg: "Unexpected error"});
+  res.status(500).json({status: 500, msg: "Unexpected error"});
 };
