@@ -1,0 +1,241 @@
+.main__left {
+  width: 1285px;
+}
+
+.main__left .active__new {
+  position: relative;
+  height: 483px;
+}
+
+.main__left .active__new .bg_news {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.main__left .active__new .front_new {
+  position: absolute;
+  bottom: 20px;
+  left: 50px;
+}
+
+.main__left .active__new .front_new h3 {
+  font-weight: 700;
+  font-size: 36px;
+  width: 759px;
+  line-height: 49px;
+  color: #fff;
+  margin-bottom: 20px;
+  font-family: var(--Manrope);
+}
+
+.main__left .active__new .front_new p {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 30px;
+  font-family: var(--Manrope);
+  color: #fff;
+}
+
+.main__left .news__row {
+  justify-content: space-between;
+}
+.main__left .news__item {
+  width: 415px;
+  height: 300px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+.main__left .news__item .bg_news {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.main__left .news__item .bg_news img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main__left .news__item .front_new {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.main__left .news__item .front_new h3 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27px;
+  color: #fff;
+  width: 333px;
+  margin-bottom: 10px;
+  font-family: var(--Manrope);
+}
+.main__left .news__item .front_new p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: #ffffff;
+  font-family: var(--Manrope);
+}
+
+.Main .main__row {
+  margin-top: 60px;
+  justify-content: space-between;
+}
+
+.Main .main__right {
+  width: 415px;
+  background: #f4f5f7;
+  border-radius: 10px;
+  padding: 20px 5px 15px 5px;
+}
+
+.lists {
+  height: 925px;
+  overflow-y: scroll;
+}
+
+.Main .select__category {
+  font-family: var(--Manrope);
+  color: #000;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.Main .main__right .list__header h4 {
+  margin-left: 20px;
+  margin-bottom: 25px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+  color: #000;
+  font-family: var(--Manrope);
+}
+
+.css-13cymwt-control {
+  height: 48px;
+  border: none !important;
+  outline: none !important;
+}
+.css-qbdosj-Input {
+  height: 45px;
+  outline: none !important;
+}
+
+.list__header .list_navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.list__header .list_navbar .left_list_nav,
+.list__header .list_navbar .right_list_nav {
+  display: flex;
+  align-items: center;
+}
+
+.list__header .list_navbar .left_list_nav span,
+.list__header .list_navbar .right_list_nav span {
+  color: #333;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  font-family: var(--Manrope);
+}
+
+.list__header .list_navbar .right_list_nav span {
+  margin-left: 32px;
+}
+
+.list__header .list_navbar .left_list_nav span {
+  margin-right: 56px;
+  margin-left: 15px;
+}
+
+.lists .list_item_div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.lists .list_item_div:nth-child(odd) {
+  background-color: #fff;
+}
+
+.lists .list_item_div .list_item_left,
+.lists .list_item_div .list_item_right {
+  display: flex;
+  align-items: center;
+}
+
+.lists .list_item_div .list_item_left h5 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27px;
+  color: #000;
+  margin-right: 20px;
+  font-family: var(--Manrope);
+}
+
+.lists .list_item_div .list_item_left img {
+  width: 30px;
+  height: 30px;
+  margin-right: 15px;
+}
+
+.lists .list_item_div .list_item_left h5 {
+  font-family: var(--Manrope);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  color: #000;
+}
+
+.lists .list_item_div .list_item_right span {
+  font-family: var(--Manrope);
+  margin-left: 25px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  color: #000;
+}
+
+.darkMode .Main .main__right {
+  background: #222327;
+}
+
+.darkMode .Main .main__right .list__header h4 {
+  color: #fff;
+}
+
+.darkMode .css-13cymwt-control {
+  background: #16171b;
+}
+
+.darkMode .lists .list_item_div .list_item_left h5,
+.darkMode .lists .list_item_div .list_item_right span {
+  color: #fff;
+}
+
+.darkMode .lists .list_item_div:nth-child(odd) {
+  background: #16171b;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #dae9e0;
+  border-radius: 10px;
+}

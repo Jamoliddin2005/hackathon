@@ -1,0 +1,87 @@
+.LatestNews {
+  margin-top: 80px;
+}
+.LatestNews .titleLatestNews {
+  padding: 21px 30px;
+  background: #469264;
+  border-radius: 10px;
+  font-family: var(--Manrope);
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.latest_news .new {
+  width: 415px;
+  border-radius: 10px;
+  padding: 10px 15px 15px;
+  background: #f4f5f7;
+  margin-right: 15px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.latest_news .new img {
+  height: 231px;
+  margin-bottom: 15px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.latest_news .new h3 {
+  color: #000;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27px;
+  font-family: var(--Manrope);
+  margin-bottom: 10px;
+}
+
+.latest_news .new p {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  font-family: var(--Manrope);
+  color: #4a4b4c;
+  margin-bottom: 16px;
+}
+
+.latest_news .new span {
+  font-family: var(--Manrope);
+  color: #898989;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.LatestNews .btn_all {
+  width: 100%;
+  background: #eaeaea;
+  border-radius: 10px;
+  padding: 23px 0;
+  cursor: pointer;
+  color: #000;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+  font-family: var(--Manrope);
+  border: none;
+  margin-bottom: 80px;
+}
+
+.darkMode .latest_news .new {
+  background: #222327;
+}
+
+.darkMode .latest_news .new h3 {
+  color: #fff;
+}
+.darkMode .latest_news .new p {
+  color: #959595;
+}
+
+.darkMode .latest_news .new span {
+  color: #fff;
+}
+.darkMode .LatestNews .btn_all {
+  background: #222327;
+  color: #fff;
+}
