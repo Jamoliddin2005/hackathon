@@ -29,12 +29,16 @@ module.exports.createTeam = async (req, res) => {
     list.teams.push({ teamId, matchCount, score });
     await list.save();
     return res.status(201).json(list);
-  } catch (error) { 
+  } catch (error) {
     res.status(400).json({ msg: "Team is not added" });
   }
 };
 
 module.exports.get = async (req, res) => {
   const list = await List.find().populate("teams.teamId")
-  res.status(200).json(list)
-}
+  const result = list.map((element) => {
+    element.teams = element.teams.sort((a, b) => (a.score - a.matchCount) + (b.score - b.matchCount))
+    return element
+  })
+  res.status(200).json(result);
+};
