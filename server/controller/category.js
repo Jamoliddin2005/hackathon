@@ -10,15 +10,19 @@ const { $where } = require("../model/teams.js");
 
 module.exports.create = async (req, res) => {
   try {
-    const { name } = req.body;
-    if (!name) return res.status(400).json("Body is not valid");
+    if (req.file) {
+      const { name } = req.body;
+      if (!name) return res.status(400).json("Body is not valid");
 
-    const category = await Category.create({ name, oldOrNew: "new" });
-    await Category.create({ name, oldOrNew: "old" });
-    await List.create({ name });
+      const category = await Category.create({ name, oldOrNew: "new" });
+      await Category.create({ name, oldOrNew: "old", img: req.file.filename });
+      await List.create({ name });
 
-    await category.save();
-    return res.status(201).json(category);
+      await category.save();
+      return res.status(201).json(category);
+    } else {
+      return res.status(400).json({ msg: "Img not found" });
+    }
   } catch (error) {
     console.log(error);
     res.status(400).json({ msg: "Category is not created" });
@@ -51,7 +55,7 @@ module.exports.newCreateTeam = async (req, res) => {
     await category.save();
 
     return res.status(201).json(category);
-  } catch (error) { 
+  } catch (error) {
     res.status(400).json({ msg: "Team is not added" });
   }
 };
@@ -212,7 +216,8 @@ module.exports.deleteTeam = async (req, res) => {
 module.exports.deleteCategory = async (req, res) => {
   try {
     const id = req.params.id;
-    const categoryName = (await Category.findById(id)).name;
+    const {name: categoryName, img} = await Category.findById(id);
+    toDelete(img);
     for (let i = 0; i < 2; i++) {
       await Category.findOneAndDelete({ name: categoryName });
     }
@@ -226,8 +231,14 @@ module.exports.deleteCategory = async (req, res) => {
 };
 
 module.exports.get = async (req, res) => {
-  const newCategories = await Category.find({ oldOrNew: "new" }).populate(["teams.team1", "teams.team2"]);
-  const oldCategories = await Category.find({ oldOrNew: "old" }).populate(["teams.team1", "teams.team2"]);
+  const newCategories = await Category.find({ oldOrNew: "new" }).populate([
+    "teams.team1",
+    "teams.team2",
+  ]);
+  const oldCategories = await Category.find({ oldOrNew: "old" }).populate([
+    "teams.team1",
+    "teams.team2",
+  ]);
 
   res.status(200).json({ new: newCategories, old: oldCategories });
 };
