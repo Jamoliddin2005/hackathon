@@ -8,6 +8,8 @@ const jwt_key = process.env.SECRET_KEY || "";
 
 module.exports.register = async (req, res, next) => {
   try {
+    const adminCheck = await Admin.find();
+    if (adminCheck) return res.status(403).json({ msg: "Admin is only one" });
     const { phone, password } = req.body;
     if (!phone || !password)
       return res.json({ msg: "phone or passowrd is not valid" });
