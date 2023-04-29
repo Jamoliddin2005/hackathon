@@ -1,0 +1,137 @@
+.top .topCategory {
+  background: #dae9e0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.top .active {
+  background: #469264;
+}
+
+.top .item {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  margin-right: 24px;
+  padding: 11px 16px 11px 13px;
+  cursor: pointer;
+}
+.top .item img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+.top .item h3 {
+  margin-left: 13px;
+  color: #777777;
+  font-family: var(--Manrope);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.top .active h3 {
+  color: #fff;
+}
+
+.categories_bottom {
+  display: flex;
+  flex-wrap: wrap;
+}
+.team .team_Top {
+  background: #f4f5f7;
+  border-radius: 10px 10px 10px 0px;
+  width: 336px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  margin-top: 20px;
+  margin-right: 8px;
+  margin-bottom: 5px;
+}
+
+.team .team_Top .teamsDir {
+  display: flex;
+  align-items: center;
+}
+.team .team_Top .teamsDir1 img {
+  margin-right: 10px;
+}
+.team .team_Top .teamsDir img {
+  width: 25px;
+  height: 25px;
+}
+
+.team .team_Top .teamsDir h4 {
+  font-weight: 400;
+  font-family: var(--Roboto);
+  font-size: 16px;
+  line-height: 19px;
+  margin-right: 10px;
+}
+.team .team_Top .teamsDir1 h4 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+  font-family: var(--Roboto);
+}
+
+.team .team_Top h3 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  color: #000;
+  font-family: var(--Roboto);
+}
+
+.team .team_Top h3 span {
+  font-weight: 700;
+}
+.team .team_Bottom {
+  border: 1px solid #f4f5f7;
+  background: #ffffff;
+  display: inline;
+  padding: 4px 13px 2px 13px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.team .team_Bottom span {
+  color: #333333;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  margin-top: 4px;
+  font-family: var(--Roboto);
+}
+
+.darkMode .top .topCategory {
+  background: #3f534c;
+}
+.darkMode .top .item h3 {
+  color: #fff;
+}
+
+.darkMode .team .team_Top {
+  background: #000;
+}
+
+.darkMode .team .team_Top h4,
+.darkMode .team .team_Top h3 {
+  color: #fff;
+}
+
+.darkMode .team .team_Bottom {
+  background: #000;
+  border: 1px solid #000;
+}
+
+.second {
+  margin-top: 30px;
+}
+
+.darkMode .team .team_Bottom span {
+  color: #fff;
+}
