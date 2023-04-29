@@ -43,4 +43,17 @@ module.exports.auth = async (req, res, next) => {
     next(err);
   }
 };
- 
+
+module.exports.verifyToken = async (req, res, next) => {
+  const token = req.headers.authenticated;
+  if (!token) return res.status(400).json({ msg: "Token must be provided" });
+
+  jwt.verify(token, jwt_key, (err, decoded) => {
+    if (err) {
+      console.log(err);
+      res.status(400).json({ msg: "Token is not valid" });
+    } else {
+      res.status(200).json({ msg: "Succes", token: true });
+    }
+  });
+};
