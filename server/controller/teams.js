@@ -2,10 +2,10 @@ const Teams = require("../model/teams.js");
 
 module.exports.create = async (req, res) => {
   try {
-    const { name, img, matchCount, score } = req.body;
+    const { name, img } = req.body;
     if (!name || !img) return res.json({ msg: "Body is not valid" });
 
-    const team = await Teams.create({ name, img, matchCount, score });
+    const team = await Teams.create({ name, img });
 
     await team.save();
     res.status(201).json({ team });

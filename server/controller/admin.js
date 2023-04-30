@@ -45,7 +45,7 @@ module.exports.auth = async (req, res, next) => {
 };
 
 module.exports.verifyToken = async (req, res, next) => {
-  const token = req.headers.authenticated;
+  const token = req.headers.authorization;
   if (!token) return res.status(400).json({ msg: "Token must be provided" });
 
   jwt.verify(token, jwt_key, (err, decoded) => {
