@@ -49,8 +49,8 @@ function News() {
           Authorization: sessionStorage.getItem("token"),
         },
       })
-      .then((res) => console.log(res))
-      .then((res) => console.log(res));
+      .then((res) =>getNews())
+      .then((res) =>getNews());
   };
 
   useEffect(() => {

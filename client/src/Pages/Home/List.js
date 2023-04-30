@@ -46,7 +46,6 @@ function List() {
         </div>
         <div className="lists">
           {activeTeams &&
-            activeTeams.length > 1 &&
             activeTeams.map((item, index) => (
               <div className="list_item_div" key={index}>
                 <div className="list_item_left">
