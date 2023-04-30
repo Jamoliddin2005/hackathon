@@ -37,7 +37,7 @@ module.exports.update = async (req, res) => {
           img: req.file.filename,
         },
       });
-      
+
       toDelete(img);
 
       res.status(200).json({ msg: "Team has been changed" });
