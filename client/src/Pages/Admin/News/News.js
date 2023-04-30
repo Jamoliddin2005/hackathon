@@ -49,7 +49,7 @@ function News() {
           Authorization: sessionStorage.getItem("token"),
         },
       })
-      .then((res) => res.json())
+      .then((res) => console.log(res))
       .then((res) => console.log(res));
   };
 

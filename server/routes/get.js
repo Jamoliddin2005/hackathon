@@ -6,8 +6,9 @@ const controll = require("../controller/news.js");
 
 router.get("/categories", category.get);
 router.get("/list", list.get);
-router.get("/verify", verifyToken)
-router.get('/news/all' , controll.getNews)
-
+router.get("/verify", verifyToken);
+router.get("/news/all", controll.getNews);
+router.get("/news/first", controll.getNewsFirst);
+router.get("/news/:id", controll.getById);
 
 module.exports = router;

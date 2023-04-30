@@ -24,11 +24,7 @@ module.exports.create = async (req, res) => {
   }
 };
 
-module.exports.getById = async (req, res) => {
-  const id = req.params.id;
-  const newNews = await News.findById(id);
-  res.json({ newNews });
-};
+
 
 module.exports.delete = async (req, res) => {
   try {
@@ -37,7 +33,7 @@ module.exports.delete = async (req, res) => {
     toDelete(img);
     await News.findByIdAndDelete(id);
     res.json({ msg: "Deleted" });
-  } catch (err) { 
+  } catch (err) {
     res.status(400).json({ msg: "Not deleted" });
   }
 };
@@ -45,4 +41,14 @@ module.exports.delete = async (req, res) => {
 module.exports.getNews = async (req, res) => {
   const news = await News.find();
   return res.json(news);
+};
+
+module.exports.getNewsFirst = async (req, res) => {
+  const news = (await News.find().limit(7)).reverse();
+  return res.json(news);
+};
+module.exports.getById = async (req, res) => {
+  const id = req.params.id;
+  const newNews = await News.findById(id);
+  res.json({ newNews });
 };

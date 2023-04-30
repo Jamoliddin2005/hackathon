@@ -1,0 +1,11 @@
+.article h2 {
+  font-size: 30px;
+  font-family: var(--Manrope);
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.article .desc {
+  font-family: var(--Manrope);
+  margin-top: 20px;
+}
