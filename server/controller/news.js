@@ -23,16 +23,6 @@ module.exports.create = async (req, res) => {
   }
 };
 
-module.exports.pagination = async (req, res) => {
-  const { start, count, option } = req.query;
-  console.log(start, count, option)
-  const newNews = await News.find().skip(start).limit(count);
-  if(option === "reverse"){
-    newNews.sort((a, b) => a.createdAt + b.createdAt)
-  }
-  res.json({ newNews });
-};
-
 module.exports.getById = async (req, res) => {
   const id = req.params.id;
   const newNews = await News.findById(id);
