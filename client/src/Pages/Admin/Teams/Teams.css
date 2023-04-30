@@ -1,0 +1,52 @@
+.Teams_Big {
+}
+.Teams_Big .teams_div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.Teams_Big .teams_div .item_team {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  background-color: #469264;
+  border-radius: 10px;
+  color: #fff;
+  font-family: var(--Manrope);
+  margin-top: 20px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.Teams_Big .teams_div .item_team img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.Teams_Big form {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.Teams_Big form button {
+  font-family: var(--Manrope);
+  background-color: #469264;
+  border: none;
+  cursor: pointer;
+  padding: 12px;
+  color: white;
+  font-size: 23px;
+  border-radius: 3px;
+}
+.Teams_Big form input {
+  height: 40px;
+  font-family: var(--Manrope);
+  padding-left: 13px;
+  font-size: 13px;
+  margin-bottom: 15px;
+}

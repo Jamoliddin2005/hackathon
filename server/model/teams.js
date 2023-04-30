@@ -8,8 +8,7 @@ const teamsSchema = new Schema({
     },
     img: {
         type: String,
-        required: true,
-        unique: true
+        required: true, 
     }
 })
 
