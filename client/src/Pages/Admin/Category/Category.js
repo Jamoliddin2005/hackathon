@@ -96,7 +96,7 @@ function Category() {
             team2: teamTwo,
             score1: Number(scoreOne),
             score2: Number(scoreTwo),
-            time: new Date().toLocaleString(),
+            time: date,
           },
           {
             headers: {

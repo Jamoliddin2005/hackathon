@@ -1,0 +1,19 @@
+.News__page form {
+  width: 1000px;
+  padding-bottom: 50px;
+}
+
+.News__page form button {
+  padding: 10px 24px;
+  border-radius: 10px;
+  border: none;
+  display: block;
+  cursor: pointer;
+  margin-top: 20px;
+  background: #469264;
+  color: white;
+  font-family: var(--Manrope);
+}
+.News__page form input {
+  margin-top: 20px;
+}

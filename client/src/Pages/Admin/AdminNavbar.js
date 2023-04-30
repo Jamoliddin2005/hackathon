@@ -11,6 +11,9 @@ function AdminNavbar() {
         <li>
           <Link to={"/category"}>Category</Link>
         </li>
+        <li>
+          <Link to={"/news"}>News</Link>
+        </li>
       </ul>
     </div>
   );

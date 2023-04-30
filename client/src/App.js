@@ -11,6 +11,7 @@ import Admin from "./Pages/Admin/Admin";
 import Teams from "./Pages/Admin/Teams/Teams";
 import axios from "axios";
 import Category from "./Pages/Admin/Category/Category";
+import News from "./Pages/Admin/News/News";
 
 function App() {
   const [sun, setSun] = useState(true);
@@ -80,6 +81,10 @@ function App() {
           <Route
             path="/category"
             element={isAdmin ? <Category /> : <Navigate to="/auth" />}
+          />
+             <Route
+            path="/news"
+            element={isAdmin ? <News /> : <Navigate to="/auth" />}
           />
         </Routes>
       </div>
