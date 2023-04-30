@@ -11,7 +11,7 @@ function Auth({ getTokenHandler }) {
   const [eye, setEye] = useState(true);
 
   const AuthHandler = async () => {
-    const axiosPost = await axios.post("http://localhost:8080/api/admin/auth", {
+    const axiosPost = await axios.post("https://hackaton-8i99.onrender.com/api/admin/auth", {
       phone: value,
       password: password,
     });

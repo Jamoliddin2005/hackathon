@@ -16,7 +16,7 @@ function Teams() {
     ProductForm.append("img", img);
 
     await axios
-      .post("http://localhost:8080/team/create", ProductForm, {
+      .post("https://hackaton-8i99.onrender.com/team/create", ProductForm, {
         headers: {
           Authorization: sessionStorage.getItem("token"),
         },
@@ -35,7 +35,7 @@ function Teams() {
   };
 
   const GetTeams = async () => {
-    await fetch("http://localhost:8080/team", {
+    await fetch("https://hackaton-8i99.onrender.com/team", {
       method: "GET",
       headers: {
         Authorization: sessionStorage.getItem("token"),
@@ -52,7 +52,7 @@ function Teams() {
   }, []);
 
   const DeleteHandler = async (id) => {
-    await fetch(`http://localhost:8080/team/delete/${id}`, {
+    await fetch(`https://hackaton-8i99.onrender.com/team/delete/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: sessionStorage.getItem("token"),

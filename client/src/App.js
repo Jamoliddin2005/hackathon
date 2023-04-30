@@ -18,7 +18,7 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   const getTokenHandler = async (req, res) => {
-    await fetch("http://localhost:8080/verify", {
+    await fetch("https://hackaton-8i99.onrender.com/verify", {
       method: "GET",
       headers: {
         Authorization: sessionStorage.getItem("token"),
