@@ -39,3 +39,13 @@ module.exports.update = async (req, res) => {
     res.status(400).json({ msg: "Can not be changed" });
   }
 };
+
+module.exports.delete = async (req, res) => {
+  try {
+    const id = req.params.id;
+    await Teams.findByIdAndDelete(id);
+    res.json({ msg: "Deleted" });
+  } catch (err) {
+    res.status(400).json({ msg: "Not deleted" });
+  }
+};

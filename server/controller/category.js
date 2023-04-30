@@ -6,6 +6,7 @@ const {
 } = require("../common/utils.js");
 const Category = require("../model/category.js");
 const List = require("../model/list.js");
+const { $where } = require("../model/teams.js");
 
 module.exports.create = async (req, res) => {
   try {
@@ -88,7 +89,6 @@ module.exports.oldCreateTeam = async (req, res) => {
     // list teams create
     await addListTeams(team1, category.name);
     await addListTeams(team2, category.name);
-
 
     // list teams update
     await listItemsUpdate(score1, score2, team1, team2, category.name);
@@ -227,8 +227,8 @@ module.exports.deleteCategory = async (req, res) => {
 };
 
 module.exports.get = async (req, res) => {
-  const newCategories = await Category.find({ oldOrNew: "new" });
-  const oldCategories = await Category.find({ oldOrNew: "old" });
+  const newCategories = await Category.find({ oldOrNew: "new" }).populate(["teams.team1", "teams.team2"]);
+  const oldCategories = await Category.find({ oldOrNew: "old" }).populate(["teams.team1", "teams.team2"]);
 
   res.status(200).json({ new: newCategories, old: oldCategories });
 };

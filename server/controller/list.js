@@ -36,6 +36,6 @@ module.exports.createTeam = async (req, res) => {
 };
 
 module.exports.get = async (req, res) => {
-  const list = await List.find()
+  const list = await List.find().populate("teams.teamId")
   res.status(200).json(list)
 }
