@@ -5,11 +5,10 @@ import "./Teams.css";
 
 function Teams() {
   const [name, setName] = useState("");
-  const [img, setImg] = useState("");
+  const [img, setImg] = useState(null);
 
   // Teams
   const [teams, setTeams] = useState([""]);
-
   const TeamCreateHandler = async () => {
     const ProductForm = new FormData();
     ProductForm.append("name", name);
@@ -67,6 +66,7 @@ function Teams() {
             name=""
             id=""
             accept="image/*"
+            multiple
             onChange={(e) => setImg(e.target.files)}
           />
           <button
