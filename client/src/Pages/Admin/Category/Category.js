@@ -26,7 +26,7 @@ function Category() {
     ProductForm.append("img", img);
 
     await axios
-      .post("https://hackaton-8i99.onrender.com/category/create", ProductForm, {
+      .post("http://localhost:8080/category/create", ProductForm, {
         headers: {
           Authorization: sessionStorage.getItem("token"),
         },
@@ -45,7 +45,7 @@ function Category() {
   };
 
   const GetCategories = async () => {
-    await fetch("https://hackaton-8i99.onrender.com/category", {
+    await fetch("http://localhost:8080/category", {
       method: "GET",
       headers: {
         Authorization: sessionStorage.getItem("token"),
@@ -57,7 +57,7 @@ function Category() {
       });
   };
   const GetTeams = async () => {
-    await fetch("https://hackaton-8i99.onrender.com/team", {
+    await fetch("http://localhost:8080/team", {
       method: "GET",
       headers: {
         Authorization: sessionStorage.getItem("token"),
@@ -75,7 +75,7 @@ function Category() {
   }, []);
 
   const DeleteHandler = async (id) => {
-    await fetch(`https://hackaton-8i99.onrender.com/category/delete/${id}`, {
+    await fetch(`http://localhost:8080/category/delete/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: sessionStorage.getItem("token"),
@@ -90,7 +90,7 @@ function Category() {
     } else {
       if (categoryId !== "") {
         const Post = await axios.post(
-          `https://hackaton-8i99.onrender.com/category/create/${oldOrNew}/team/${categoryId}`,
+          `http://localhost:8080/category/create/${oldOrNew}/team/${categoryId}`,
           {
             team1: teamOne,
             team2: teamTwo,
@@ -228,7 +228,7 @@ function Category() {
                   }}
                 >
                   <img
-                    src="https://cdn-icons-png.flaticon.com/512/3405/3405244.png"
+                    src="http://cdn-icons-png.flaticon.com/512/3405/3405244.png"
                     alt=""
                   />
                 </span>

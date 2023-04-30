@@ -6,7 +6,7 @@ module.exports = (photo, res) => {
     if (typeof photo === "object") {
       for (var i = 0; i < photo.length; i++) {
         fs.unlink(
-          path.join(__dirname, "../uploads/" + photo[i]),
+          path.join(__dirname, "../../../public/uploades/" + photo[i]),
           (err, data) => {
             if (err) {
               return;
@@ -17,7 +17,7 @@ module.exports = (photo, res) => {
       }
     } else {
       fs.unlink(
-        path.join(__dirname, "../uploads/" + photo),
+        path.join(__dirname, "../../../public/uploades/" + photo),
         (err, data) => {
           if (err) {
             return;

@@ -18,7 +18,7 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   const getTokenHandler = async (req, res) => {
-    await fetch("https://hackaton-8i99.onrender.com/verify", {
+    await fetch("http://localhost:8080/verify", {
       method: "GET",
       headers: {
         Authorization: sessionStorage.getItem("token"),
@@ -82,7 +82,7 @@ function App() {
             path="/category"
             element={isAdmin ? <Category /> : <Navigate to="/auth" />}
           />
-             <Route
+          <Route
             path="/news"
             element={isAdmin ? <News /> : <Navigate to="/auth" />}
           />
