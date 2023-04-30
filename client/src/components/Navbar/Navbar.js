@@ -1,7 +1,8 @@
 import React from "react";
 import classes from "./Navbar.module.css";
+import { Link } from "react-router-dom";
 
-function Navbar({ sun, setSun }) {
+function Navbar({ sun, setSun, isAdmin, getTokenHandler }) {
   const LightAndDark = () => {
     if (sun) {
       setSun(false);
@@ -15,9 +16,23 @@ function Navbar({ sun, setSun }) {
       <div className="container">
         <div className={`row ${classes.row}`}>
           <div className={classes.left}>
-            <img src="/images/logo.png" alt="" />
+            <Link to={"/"}>
+              {" "}
+              <img src="/images/logo.png" alt="" />
+            </Link>
           </div>
           <div className={classes.right}>
+            {isAdmin && <Link to={"/admin"}>Admin Page</Link>}
+            {isAdmin && (
+              <span
+                onClick={(e) => {
+                  window.sessionStorage.removeItem("token");
+                  window.location.href = "/";
+                }}
+              >
+                LogOut
+              </span>
+            )}
             <button onClick={(e) => LightAndDark()}>
               <svg
                 width="20"

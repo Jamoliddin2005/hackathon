@@ -20,3 +20,27 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.Navbar .right {
+  display: flex;
+  align-items: center;
+}
+
+.Navbar .right a {
+  margin-right: 20px;
+  padding: 10px 20px;
+  font-family: var(--Manrope);
+  color: white;
+  border-radius: 10px;
+  background-color: darkgreen;
+}
+
+.Navbar .right span {
+  padding: 10px 20px;
+  background-color: darkred;
+  color: white;
+  cursor: pointer;
+  font-family: var(--Manrope);
+  border-radius: 10px;
+  margin-right: 20px;
+}

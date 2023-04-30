@@ -5,17 +5,20 @@ import "react-phone-number-input/style.css";
 import { ReactComponent as Password } from "./password.svg";
 import axios from "axios";
 
-function Auth() {
+function Auth({ getTokenHandler }) {
   const [value, setValue] = useState("");
   const [password, setPassword] = useState("");
   const [eye, setEye] = useState(true);
 
   const AuthHandler = async () => {
-    const post = await axios.post("http://localhost:8080/api/admin/auth", {
+    const axiosPost = await axios.post("http://localhost:8080/api/admin/auth", {
       phone: value,
       password: password,
     });
-    console.log(post.data);
+    if (axiosPost) {
+      window.sessionStorage.setItem("token", axiosPost.data.token);
+      getTokenHandler();
+    }
   };
 
   return (
