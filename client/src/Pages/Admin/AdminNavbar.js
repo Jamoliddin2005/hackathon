@@ -8,6 +8,9 @@ function AdminNavbar() {
         <li>
           <Link to={"/teams"}>Teams</Link>
         </li>
+        <li>
+          <Link to={"/category"}>Category</Link>
+        </li>
       </ul>
     </div>
   );

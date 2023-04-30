@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Admin from "./Pages/Admin/Admin";
 import Teams from "./Pages/Admin/Teams/Teams";
 import axios from "axios";
+import Category from "./Pages/Admin/Category/Category";
 
 function App() {
   const [sun, setSun] = useState(true);
@@ -30,9 +31,9 @@ function App() {
       })
       .catch((err) => console.log(err));
   };
- 
+
   useEffect(() => {
-    getTokenHandler(); 
+    getTokenHandler();
   }, []);
 
   return (
@@ -75,6 +76,10 @@ function App() {
           <Route
             path="/teams"
             element={isAdmin ? <Teams /> : <Navigate to="/auth" />}
+          />
+          <Route
+            path="/category"
+            element={isAdmin ? <Category /> : <Navigate to="/auth" />}
           />
         </Routes>
       </div>

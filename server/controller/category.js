@@ -6,7 +6,7 @@ const {
 } = require("../common/utils.js");
 const Category = require("../model/category.js");
 const List = require("../model/list.js");
-const { $where } = require("../model/teams.js");
+const toDelete = require("../middleware/toDelete.js");
 
 module.exports.create = async (req, res) => {
   try {
@@ -14,9 +14,13 @@ module.exports.create = async (req, res) => {
       const { name } = req.body;
       if (!name) return res.status(400).json("Body is not valid");
 
-      const category = await Category.create({ name, oldOrNew: "new" });
+      const category = await Category.create({
+        name,
+        oldOrNew: "new",
+        img: req.file.filename,
+      });
       await Category.create({ name, oldOrNew: "old", img: req.file.filename });
-      await List.create({ name });
+      await List.create({ name, img: req.file.filename });
 
       await category.save();
       return res.status(201).json(category);
@@ -216,7 +220,7 @@ module.exports.deleteTeam = async (req, res) => {
 module.exports.deleteCategory = async (req, res) => {
   try {
     const id = req.params.id;
-    const {name: categoryName, img} = await Category.findById(id);
+    const { name: categoryName, img } = await Category.findById(id);
     toDelete(img);
     for (let i = 0; i < 2; i++) {
       await Category.findOneAndDelete({ name: categoryName });

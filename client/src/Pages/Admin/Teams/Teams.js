@@ -23,6 +23,7 @@ function Teams() {
       })
       .then((res) => {
         if (res.data) {
+          GetTeams();
           return toast.success("Team added");
         }
       })
@@ -57,6 +58,7 @@ function Teams() {
         Authorization: sessionStorage.getItem("token"),
       },
     });
+    GetTeams();
   };
 
   return (
