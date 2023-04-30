@@ -51,8 +51,7 @@ module.exports.newCreateTeam = async (req, res) => {
     await category.save();
 
     return res.status(201).json(category);
-  } catch (error) {
-    console.log(error);
+  } catch (error) { 
     res.status(400).json({ msg: "Team is not added" });
   }
 };

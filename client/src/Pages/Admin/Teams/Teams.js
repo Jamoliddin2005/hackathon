@@ -9,6 +9,7 @@ function Teams() {
 
   // Teams
   const [teams, setTeams] = useState([""]);
+
   const TeamCreateHandler = async () => {
     const ProductForm = new FormData();
     ProductForm.append("name", name);
@@ -49,10 +50,19 @@ function Teams() {
     GetTeams();
   }, []);
 
+  const DeleteHandler = async (id) => {
+    await fetch(`http://localhost:8080/team/delete/${id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: sessionStorage.getItem("token"),
+      },
+    });
+  };
+
   return (
     <div className="Teams_Big">
       <div className="container">
-        <form>
+        <form encType="multipart/form-data">
           <input
             type="text"
             name=""
@@ -63,11 +73,10 @@ function Teams() {
           />
           <input
             type="file"
-            name=""
+            name="img"
             id=""
             accept="image/*"
-            multiple
-            onChange={(e) => setImg(e.target.files)}
+            onChange={(e) => setImg(e.target.files[0])}
           />
           <button
             onClick={(e) => {
@@ -83,8 +92,18 @@ function Teams() {
           {teams &&
             teams.map((item, index) => (
               <div className="item_team" key={index}>
-                {item.img && <img src={item.img} alt="" />}
+                {item.img && <img src={`/uploads/${item.img}`} alt="" />}
                 <h4>{item.name}</h4>
+                <span
+                  onClick={(e) => {
+                    DeleteHandler(item._id);
+                  }}
+                >
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/3405/3405244.png"
+                    alt=""
+                  />
+                </span>
               </div>
             ))}
         </div>

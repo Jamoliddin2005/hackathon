@@ -5,6 +5,6 @@ const FileUploader = require("../middleware/FileUploader.js");
 router.post("/create", FileUploader.single("img"), controll.create);
 router.put("/update/:id", controll.update);
 router.get("/", controll.find);
-router.delete("/:id", controll.delete);
+router.delete("/delete/:id", controll.delete);
 
 module.exports = router;

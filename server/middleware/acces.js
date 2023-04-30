@@ -8,8 +8,7 @@ module.exports = async (req, res, next) => {
   if (!token) return res.status(400).json({ msg: "Token must be provided" });
 
   jwt.verify(token, jwt_key, (err, decoded) => {
-    if (err) {
-      console.log(err);
+    if (err) { 
       res.status(400).json({ msg: "Token is not valid" });
     } else {
       next();

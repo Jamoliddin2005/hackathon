@@ -1,4 +1,5 @@
 const Teams = require("../model/teams.js");
+const toDelete = require("../middleware/toDelete.js");
 
 module.exports.create = async (req, res) => {
   try {
@@ -44,6 +45,8 @@ module.exports.update = async (req, res) => {
 module.exports.delete = async (req, res) => {
   try {
     const id = req.params.id;
+    const { img } = await Teams.findById(id);
+    toDelete(img);
     await Teams.findByIdAndDelete(id);
     res.json({ msg: "Deleted" });
   } catch (err) {

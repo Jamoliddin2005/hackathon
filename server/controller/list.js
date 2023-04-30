@@ -29,8 +29,7 @@ module.exports.createTeam = async (req, res) => {
     list.teams.push({ teamId, matchCount, score });
     await list.save();
     return res.status(201).json(list);
-  } catch (error) {
-    console.log(error);
+  } catch (error) { 
     res.status(400).json({ msg: "Team is not added" });
   }
 };
