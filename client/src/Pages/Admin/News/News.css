@@ -16,4 +16,33 @@
 }
 .News__page form input {
   margin-top: 20px;
+  width: 100%;
+  height: 45px;
+  outline: none;
+  padding-left: 10px;
+}
+
+.news_admin_page {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.news_admin_page .item_news {
+  width: 300px;
+  position: relative;
+}
+
+.news_admin_page .item_news img {
+  width: 100%;
+}
+
+.news_admin_page .item_news .btn_delete {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
 }

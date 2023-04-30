@@ -1,5 +1,5 @@
 const News = require("../model/news.js");
-
+const toDelete = require("../middleware/toDelete.js");
 module.exports.create = async (req, res) => {
   try {
     if (req.file) {
@@ -11,6 +11,7 @@ module.exports.create = async (req, res) => {
         body: data,
         title,
         img: req.file.filename,
+        date: new Date().toLocaleString(),
       });
 
       await newNews.save();
@@ -36,7 +37,12 @@ module.exports.delete = async (req, res) => {
     toDelete(img);
     await News.findByIdAndDelete(id);
     res.json({ msg: "Deleted" });
-  } catch (err) {
+  } catch (err) { 
     res.status(400).json({ msg: "Not deleted" });
   }
+};
+
+module.exports.getNews = async (req, res) => {
+  const news = await News.find();
+  return res.json(news);
 };
